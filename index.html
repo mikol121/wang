@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王平平的个人博客 - 作业提交</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* 头部信息样式 - 模仿第一个图片 */
+        .header-info {
+            background-color: #fff;
+            padding: 15px 25px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .student-info {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .student-id {
+            color: #666;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        
+        .time-info {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .page-indicator {
+            text-align: right;
+            font-size: 16px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        /* 作业要求区域 */
+        .assignment-area {
+            padding: 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .assignment-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+        }
+        
+        .question-points {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+        
+        .question-content {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .requirements {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #4CAF50;
+            margin-top: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .requirements li {
+            margin-bottom: 8px;
+        }
+        
+        /* 答案输入区域 */
+        .answer-area {
+            padding: 25px;
+        }
+        
+        .answer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        /* 博客网站展示区域 */
+        .blog-showcase {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .blog-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .blog-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .blog-nav {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .blog-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .blog-nav a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        
+        .blog-content {
+            display: flex;
+            min-height: 400px;
+        }
+        
+        .blog-sidebar {
+            width: 30%;
+            background-color: #34495e;
+            color: white;
+            padding: 25px;
+        }
+        
+        .blog-main {
+            width: 70%;
+            padding: 25px;
+            background-color: #ecf0f1;
+        }
+        
+        .welcome-section {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .personal-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            width: 100px;
+            color: #2c3e50;
+        }
+        
+        .info-value {
+            color: #333;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        /* 部署信息区域 */
+        .deployment-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .deployment-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .deployment-link {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+            word-break: break-all;
+        }
+        
+        .deployment-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* 导航按钮 */
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .nav-btn {
+            padding: 10px 25px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .nav-btn.prev {
+            background-color: #7f8c8d;
+        }
+        
+        .nav-btn.prev:hover {
+            background-color: #636e72;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .blog-content {
+                flex-direction: column;
+            }
+            
+            .blog-sidebar, .blog-main {
+                width: 100%;
+            }
+            
+            .blog-nav {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+            
+            .header-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .time-info {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 - 模仿第一个图片 -->
+        <div class="header-info">
+            <div class="student-info">
+                王平平 <span class="student-id">(23170401030)</span>
+            </div>
+            <div class="time-info">
+                81'10"<br>
+                <div class="page-indicator">1/1</div>
+            </div>
+        </div>
+        
+            <div class="blog-showcase">
+                <div class="blog-header">
+                    <div class="blog-title">我的个人主页</div>
+                    <div class="blog-nav">
+                        <a href="#home">首页</a>
+                        <a href="#hobby">我的爱好</a>
+                        <a href="#blog">我的日志</a>
+                        <a href="#contact">联系我们</a>
+                    </div>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-sidebar">
+                        <div class="sidebar-section">
+                            <div class="sidebar-title">关于我</div>
+                            <p>我是一个热爱生活、喜欢记录和分享的数据科学与大数据技术专业学生。通过这个博客，我希望分享我的学习心得、旅行见闻和生活感悟。</p>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <div class="sidebar-title">给我留言</div>
+                            <p>如果您有任何建议或想与我交流，欢迎通过页面底部的联系表单给我留言！</p>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-main">
+                        <div class="welcome-section">
+                            <h2>「 Welcome! 」</h2>
+                            <p>- 我的个人主页 -</p>
+                        </div>
+                        
+                        <div class="personal-info">
+                            <div class="info-item">
+                                <span class="info-label">姓名：</span>
+                                <span class="info-value">王平平</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">性别：</span>
+                                <span class="info-value">男</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">爱好：</span>
+                                <span class="info-value">旅游、摄影、读书、打游戏</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">年龄：</span>
+                                <span class="info-value">20</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">性格：</span>
+                                <span class="info-value">内向</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">专业：</span>
+                                <span class="info-value">数据科学与大数据技术1班</span>
+                            </div>
+                             <div class="info-item">
+                                <span class="info-label">学号：</span>
+                                <span class="info-value">23170401030</span>
+                            </div>
+                        </div>
+                        
+                        <div class="deployment-info">
+                            <div class="deployment-title">网站部署信息</div>
+                            <p><strong>域名链接：</strong> 
+                                <a href="https://wangpingping-blog.netlify.app" class="deployment-link" target="_blank">
+                                    https://wangpingping-blog.netlify.app
+                                </a>
+                            </p>
+                            <p><strong>部署平台：</strong> Netlify</p>
+                            <p><strong>部署时间：</strong> 2023年10月</p>
+                            <p><strong>备注：</strong> 该链接可通过互联网直接访问，网站包含完整的个人博客功能。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 作业提交说明 -->
+            <div class="deployment-info" style="margin-top: 30px;">
+                <div class="deployment-title">作业提交材料清单</div>
+                <ul>
+                    <li><strong>网页制作过程文档：</strong> 已整理为PDF文档，包含需求分析、设计思路、技术实现和测试过程</li>
+                    <li><strong>完整源代码：</strong> 包含HTML、CSS、JavaScript文件，已上传至GitHub仓库</li>
+                    <li><strong>网页最终效果截图：</strong> 包含桌面端和移动端展示效果截图</li>
+                    <li><strong>域名链接：</strong> https://wangpingping-blog.netlify.app （可点击访问）</li>
+                </ul>
+                <p style="margin-top: 15px; font-style: italic;">注：以上为模拟作业提交内容，实际部署时需替换为真实的部署链接。</p>
+            </div>
+        </div>
+        
+        <!-- 导航按钮 -->
+        <div class="navigation-buttons">
+            <button class="nav-btn prev">上一题</button>
+            <button class="nav-btn">下一步</button>
+        </div>
+    </div>
+
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航按钮点击效果
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.classList.contains('prev')) {
+                        alert('返回上一题');
+                    } else {
+                        alert('提交作业并进入下一步');
+                    }
+                });
+            });
+            
+            // 博客导航点击效果
+            const blogNavLinks = document.querySelectorAll('.blog-nav a');
+            blogNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const section = this.getAttribute('href').substring(1);
+                    const sections = ['home', 'hobby', 'blog', 'contact'];
+                    alert(`跳转到「${this.textContent}」页面（模拟功能）`);
+                });
+            });
+            
+            // 部署链接点击效果
+            const deploymentLink = document.querySelector('.deployment-link');
+            deploymentLink.addEventListener('click', function(e) {
+                if (!confirm('此链接为示例链接，实际作业中需替换为真实部署链接。是否继续访问？')) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
